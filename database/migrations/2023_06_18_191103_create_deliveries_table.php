@@ -23,6 +23,8 @@ return new class extends Migration {
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
+            $table->date('date');
+
             $table->timestamps();
         });
 
@@ -50,6 +52,7 @@ return new class extends Migration {
 
     public function down()
     {
+        Schema::dropIfExists('delivery_user');
         Schema::dropIfExists('deliveries');
     }
 };

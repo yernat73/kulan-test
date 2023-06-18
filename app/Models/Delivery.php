@@ -11,7 +11,8 @@ class Delivery extends Model
     protected $fillable = [
         'status',
         'departure_city_id',
-        'destination_city_id'
+        'destination_city_id',
+        'date',
     ];
 
     public function departureCity(): BelongsTo
