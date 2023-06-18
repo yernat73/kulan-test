@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function deliveries(): BelongsToMany
     {
-        return $this->belongsToMany(User::class)
+        return $this->belongsToMany(Delivery::class)
             ->using(DeliveryUser::class)
             ->withTimestamps();
     }
