@@ -16,10 +16,16 @@ class UserSeeder extends Seeder
             '--all' => true,
         ]);
 
-        Role::query()
+        $userRole = Role::query()
             ->create([
                 'name' => 'user',
                 'guard_name' => 'web',
+            ])
+            ->givePermissionTo([
+                'page_CreateDelivery',
+                'view_any_delivery',
+                'view_city',
+                'view_any_city',
             ]);
 
         Role::query()
