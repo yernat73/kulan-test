@@ -26,23 +26,23 @@ class DeliveryService
             'unique_departure_cities_count' => [
                 'required',
                 'integer',
-                'size:1'
+                'size:1',
             ],
             'unique_destinations_cities_count' => [
                 'required',
                 'integer',
-                'size:1'
+                'size:1',
             ],
             'unique_dates_count' => [
                 'required',
                 'integer',
-                'size:1'
-            ]
+                'size:1',
+            ],
         ], [
             'size.min' => 'Выберите как минимум 2 записи',
             'unique_departure_cities_count.size' => 'Пункты отправления не совпадают',
             'unique_destinations_cities_count.size' => 'Пункты назначения не совпадают',
-            'unique_dates_count.size' => 'Даты доставки не совпадают'
+            'unique_dates_count.size' => 'Даты доставки не совпадают',
         ])->validate();
     }
 
@@ -64,7 +64,7 @@ class DeliveryService
 
             $latestDelivery->users()->sync($userIds);
             $latestDelivery->update([
-                'status' => DeliveryStatus::PENDING
+                'status' => DeliveryStatus::PENDING,
             ]);
 
             Delivery::query()
@@ -72,7 +72,5 @@ class DeliveryService
                 ->delete();
         });
 
-
     }
-
 }

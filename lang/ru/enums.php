@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 return [
@@ -7,5 +8,5 @@ return [
         \App\Enums\DeliveryStatus::PENDING => 'Ожидание ответа',
         \App\Enums\DeliveryStatus::APPROVED => 'Подтверждено',
 
-    ]
+    ],
 ];

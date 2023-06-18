@@ -9,7 +9,7 @@ class DeliveryUser extends Pivot
 {
     protected $fillable = [
         'delivery_id',
-        'user_id'
+        'user_id',
     ];
 
     public function delivery(): BelongsTo

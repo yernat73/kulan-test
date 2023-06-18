@@ -19,12 +19,11 @@ class CreateDelivery extends CreateRecord
 
     protected function handleRecordCreation(array $data): Model
     {
-        return DB::transaction(function () use($data): Delivery{
+        return DB::transaction(function () use ($data): Delivery {
 
             $delivery = parent::handleRecordCreation($data);
-            /** @var Delivery $delivery*/
-
-            if(auth()->user()->hasRole('user')){
+            /** @var Delivery $delivery */
+            if (auth()->user()->hasRole('user')) {
                 $delivery->users()->attach(auth()->id());
             }
 

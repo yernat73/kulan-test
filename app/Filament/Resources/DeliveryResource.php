@@ -66,7 +66,7 @@ class DeliveryResource extends Resource implements HasShieldPermissions
                     ])
                     ->colors([
                         'secondary' => DeliveryStatus::PENDING,
-                        'danger' =>  DeliveryStatus::REJECTED,
+                        'danger' => DeliveryStatus::REJECTED,
                         'success' => DeliveryStatus::APPROVED,
                     ])
                     ->sortable(),
@@ -96,10 +96,10 @@ class DeliveryResource extends Resource implements HasShieldPermissions
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\BulkAction::make('merge')
-                    ->action(function (Collection $records, Pages\ListDeliveries $livewire){
+                    ->action(function (Collection $records, Pages\ListDeliveries $livewire) {
                         try {
                             app(DeliveryService::class)->merge($records);
-                        }catch (\Throwable $exception){
+                        } catch (\Throwable $exception) {
                             $livewire->notify('danger', $exception->getMessage());
                         }
                     })
@@ -108,14 +108,14 @@ class DeliveryResource extends Resource implements HasShieldPermissions
                     ->visible(fn (): bool => auth()->user()->can('merge_delivery')),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
-            RelationManagers\UsersRelationManager::class
+            RelationManagers\UsersRelationManager::class,
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

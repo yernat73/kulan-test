@@ -41,5 +41,5 @@ class UsersRelationManager extends RelationManager
             ->bulkActions([
                 Tables\Actions\DetachBulkAction::make(),
             ]);
-    }    
+    }
 }
