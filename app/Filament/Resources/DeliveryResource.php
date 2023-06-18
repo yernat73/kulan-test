@@ -29,11 +29,14 @@ class DeliveryResource extends Resource implements HasShieldPermissions
                     ->options(DeliveryStatus::asSelectArray())
                     ->default(DeliveryStatus::PENDING)
                     ->required()
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->hiddenOn('create'),
 
                 Forms\Components\Select::make('departure_city_id')
                     ->relationship('departureCity', 'name')
+                    ->default(auth()->user()->city_id)
                     ->required(),
+
                 Forms\Components\Select::make('destination_city_id')
                     ->relationship('destinationCity', 'name')
                     ->required(),
