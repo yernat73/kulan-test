@@ -16,6 +16,6 @@ class CitySeeder extends Seeder
             ->values()
             ->pluck('name_ru')
             ->unique()
-            ->each(fn(string $name) => City::query()->create(['name' => $name]));
+            ->each(fn (string $name) => City::query()->create(['name' => $name]));
     }
 }

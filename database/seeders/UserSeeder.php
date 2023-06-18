@@ -13,13 +13,13 @@ class UserSeeder extends Seeder
     {
         Artisan::call('shield:generate', [
             '--option' => 'permissions',
-            '--all' => true
+            '--all' => true,
         ]);
 
         Role::query()
             ->create([
                 'name' => 'user',
-                'guard_name' => 'web'
+                'guard_name' => 'web',
             ]);
 
         Role::query()

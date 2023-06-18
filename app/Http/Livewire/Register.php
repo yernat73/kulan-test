@@ -101,6 +101,4 @@ class Register extends Component implements HasForms
                 'title' => __('filament::register.title'),
             ]);
     }
-
-
 }
