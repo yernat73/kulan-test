@@ -27,7 +27,7 @@ class Delivery extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany('users')
+        return $this->belongsToMany(User::class)
             ->using(DeliveryUser::class)
             ->withTimestamps();
     }
