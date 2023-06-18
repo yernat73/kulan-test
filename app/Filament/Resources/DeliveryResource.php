@@ -88,7 +88,9 @@ class DeliveryResource extends Resource implements HasShieldPermissions
 
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('status')
+                    ->options(DeliveryStatus::asSelectArray())
+                    ->multiple(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
