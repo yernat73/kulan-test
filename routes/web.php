@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Register;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::redirect('/', '/admin')->name('home');
+
+
+Route::prefix(config('filament.path'))
+    ->name('filament.')
+    ->group(function () {
+    Route::get('/register', Register::class)->name('auth.register');
+});
