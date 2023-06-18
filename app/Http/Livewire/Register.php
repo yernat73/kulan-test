@@ -91,7 +91,8 @@ class Register extends Component implements HasForms
                 ->string()
                 ->maxLength(255)
                 ->password()
-                ->required(),
+                ->required()
+                ->dehydrated(false),
         ];
     }
 

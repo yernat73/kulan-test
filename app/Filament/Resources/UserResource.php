@@ -41,13 +41,16 @@ class UserResource extends Resource
                     ->maxLength(255)
                     ->password()
                     ->confirmed()
-                    ->dehydrateStateUsing(fn ($state) => Hash::make($state)),
+                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+                    ->hiddenOn('edit'),
 
                 Forms\Components\TextInput::make('password_confirmation')
                     ->required()
                     ->string()
                     ->maxLength(255)
-                    ->password(),
+                    ->password()
+                    ->dehydrated(false)
+                    ->hiddenOn('edit'),
 
                 Forms\Components\Select::make('city_id')
                     ->relationship('city', 'name'),
