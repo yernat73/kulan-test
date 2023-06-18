@@ -21,12 +21,12 @@ class Delivery extends Model
 
     public function departureCity(): BelongsTo
     {
-        return $this->belongsTo('cities');
+        return $this->belongsTo(City::class);
     }
 
     public function destinationCity(): BelongsTo
     {
-        return $this->belongsTo('cities');
+        return $this->belongsTo(City::class);
     }
 
     public function users(): BelongsToMany
