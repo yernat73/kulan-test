@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
@@ -38,7 +39,7 @@ class Register extends Component implements HasForms
         $this->form->fill();
     }
 
-    public function register()
+    public function register(): RedirectResponse
     {
         $user = Role::query()
             ->where('name', 'user')
