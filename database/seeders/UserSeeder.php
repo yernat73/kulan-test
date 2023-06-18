@@ -17,6 +17,12 @@ class UserSeeder extends Seeder
         ]);
 
         Role::query()
+            ->create([
+                'name' => 'user',
+                'guard_name' => 'web'
+            ]);
+
+        Role::query()
             ->where('name', 'super_admin')
             ->firstOrFail()
             ->users()
