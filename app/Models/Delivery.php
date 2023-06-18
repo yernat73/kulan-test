@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\DeliveryStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -13,10 +12,6 @@ class Delivery extends Model
         'status',
         'departure_city_id',
         'destination_city_id'
-    ];
-
-    protected $casts = [
-        'status' => DeliveryStatus::class
     ];
 
     public function departureCity(): BelongsTo
