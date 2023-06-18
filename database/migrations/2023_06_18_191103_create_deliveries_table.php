@@ -26,7 +26,7 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('delivery_city', function (Blueprint $table) {
+        Schema::create('delivery_user', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('delivery_id')
@@ -38,6 +38,11 @@ return new class extends Migration {
                 ->constrained('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->unique([
+                'delivery_id',
+                'user_id',
+            ]);
 
             $table->timestamps();
         });
